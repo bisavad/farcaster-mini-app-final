@@ -1,0 +1,7 @@
+{
+    "name": "Google Redirect Mini App",
+    "iconUrl": "https://farcaster-mini-app-final-q22o.vercel.app/icon.png",
+    "homeUrl": "https://farcaster-mini-app-final-q22o.vercel.app/",
+    "supportUrl": "https://farcaster-mini-app-final-q22o.vercel.app/",
+    "description": "A simple Farcaster Mini App demonstrating external URL redirection."
+  }
