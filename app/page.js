@@ -1,23 +1,26 @@
-// /app/page.js - نسخه نهایی تمیز شده با ساختار استاندارد Next.js
+// /app/page.js - نسخه نهایی بدون تداخل CSS/JSX
 
 const GOOGLE_URL = "https://www.google.com";
 
 export default function Home() {
   return (
-    // Next.js خودش تگ های <html> و <body> را اضافه می کند
     <>
-      {/* این تگ برای تزریق اسکریپت ها به <head> استفاده می شود */}
       <head>
         <title>Google Redirect Mini App</title>
         
         <meta property="og:title" content="Mini App Redirect to Google" />
         <meta property="og:image" content="https://picsum.photos/600/400" />
         
-        {/* مهم: اسکریپت SDK مینی اَپ فارکستر */}
+        {/* اسکریپت SDK مینی اَپ فارکستر */}
         <script src="https://assets.warpcast.com/sdk/mini-app-sdk.js" defer></script>
         
         {/* منطق جاوا اسکریپت برای فراخوانی ready() و هندل کردن دکمه */}
         <script dangerouslySetInnerHTML={{ __html: `
+            // تنظیم استایل پس زمینه از طریق JS برای حذف تداخل CSS
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.overflow = 'hidden';
+            
             window.onload = function() {
                 // اعلام آمادگی به Warpcast
                 if (window.sdk && window.sdk.actions && window.sdk.actions.ready) {
@@ -46,16 +49,8 @@ export default function Home() {
         `}} />
         
       </head>
-      
-      {/* این یک تگ استایل موقت است تا body را تمیز کنیم */}
-      <style global jsx>{`
-          body { 
-              margin: 0; 
-              padding: 0; 
-              overflow: hidden; 
-          }
-      `}</style>
-
+      <body>
+      </body>
     </>
   );
 }
